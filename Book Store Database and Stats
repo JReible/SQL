@@ -1,0 +1,26 @@
+CREATE TABLE inventory (id INTEGER PRIMARY KEY, title TEXT, author TEXT, price INTEGER, quantity INTEGER);
+INSERT INTO inventory VALUES (1, "Mythos", "Stephen Fry", 18, 3);
+INSERT INTO inventory VALUES (2, "Kindred", "Octavia Butler", 28, 5);
+INSERT INTO inventory VALUES (3, "Daughter of the Moon Goddess", "Sue Lynn Tan", 24, 3);
+INSERT INTO inventory VALUES (4, "Lady Midnight", "Cassandra Claire", 18, 6);
+INSERT INTO inventory VALUES (5, "The Rose Code", "Kate Quinn", 26, 2);
+INSERT INTO inventory VALUES (6, "Concrete Rose", "Angie Thomas", 23, 6);
+INSERT INTO inventory VALUES (7, "The Elephant Whisperer", "Anthony Lawrence", 14, 8);
+INSERT INTO inventory VALUES (8, "Unstoppable", "Bill Nye", 20, 4);
+INSERT INTO inventory VALUES (9, "Salem's Lot", "Stephen King", 34, 3);
+INSERT INTO inventory VALUES (10, "The Way of Kings", "Brandon Sanderson", 34, 2);
+INSERT INTO inventory VALUES (11, "Throne of Glass", "Sarah J Maas", 22, 5);
+INSERT INTO inventory VALUES (12, "Alias Grace", "Margaret Atwood", 12, 2);
+INSERT INTO inventory VALUES (13, "Emma", "Jane Austen", 15, 4);
+INSERT INTO inventory VALUES (14, "The Martian", "Andy Weir", 28, 3);
+INSERT INTO inventory VALUES (15, "Little Women", "Louisa May Alcott", 13, 3);
+
+-display the database ordered by price.
+SELECT * FROM inventory ORDER BY price;
+
+-display the database ordered by quantity.
+SELECT * FROM inventory ORDER BY quantity;
+
+-total inventory owned by the store.
+SELECT SUM (quantity) FROM inventory;
+
