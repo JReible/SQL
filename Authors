@@ -1,0 +1,27 @@
+CREATE TABLE authors (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, book TEXT, published INTEGER);
+
+INSERT INTO authors (name, book, published) VALUES ("Stephen King", "The Shining", 1977);
+INSERT INTO authors (name, book, published) VALUES ("Joe Abercrombie", "The Blade Itself", 2006);
+INSERT INTO authors (name, book, published) VALUES ("Fonda Lee", "Jade City", 2017);
+INSERT INTO authors (name, book, published) VALUES ("Khaled Hosseini", "The Kite Runner", 2003);
+INSERT INTO authors (name, book, published) VALUES ("Victoria Aveyard", "Red Queen", 2015);
+INSERT INTO authors (name, book, published) VALUES ("J.R.R. Tolkien", "The Hobbit", 1937);
+
+
+
+CREATE TABLE movie_adaptations (id INTEGER PRIMARY KEY AUTOINCREMENT, movie TEXT, author_id INTEGER, movie_release INTEGER);
+
+INSERT INTO movie_adaptations (movie, author_id, movie_release) VALUES ("The Shining", 1, 1980);
+INSERT INTO movie_adaptations (movie, author_id, movie_release) VALUES ("The Kite Runner", 4, 2008);
+INSERT INTO movie_adaptations (movie, author_id, movie_release) VALUES ("The Hobbit", 6, 1977);
+INSERT INTO movie_adaptations (movie, author_id, movie_release) VALUES ("The Hobbit: An Unexpected Journey", 6, 2012);
+
+
+--Tables joined to show authors who's books have movie adaptations.
+SELECT authors.name, movie_adaptations.movie FROM authors JOIN movie_adaptations ON authors.id = movie_adaptations.author_id;
+
+--Tables joined to show authors, book title, published year and movie release year ordered by publish date.
+SELECT authors.name, authors.book, authors.published, movie_adaptations.movie_release FROM authors LEFT OUTER JOIN movie_adaptations ON authors.id = movie_adaptations.author_id ORDER BY published;
+
+
+
